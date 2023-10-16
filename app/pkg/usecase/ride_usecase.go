@@ -1,10 +1,9 @@
 package usecase
 
 import (
-	"github.com/jcr04/Zapfast.go\app\pkg\domain"
-	"github.com/jcr04/Zapfast.go/pkg/repository"
+	"github.com/jcr04/Zapfast.go/app/pkg/domain"
+	"github.com/jcr04/Zapfast.go/app/pkg/repository"
 )
-
 
 type RideUsecase struct {
 	rideRepo repository.RideRepository
