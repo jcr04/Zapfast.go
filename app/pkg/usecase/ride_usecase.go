@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"github.com/jcr04/Zapfast.go/app/pkg/domain"
-	"github.com/jcr04/Zapfast.go/app/pkg/repository"
+	repository "github.com/jcr04/Zapfast.go/app/pkg/repository/postgres"
 )
 
 type RideUsecase struct {

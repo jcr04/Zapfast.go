@@ -1,4 +1,4 @@
-module github.com/jcr04/zapfast
+module github.com/jcr04/Zapfast.go
 
 go 1.16
 

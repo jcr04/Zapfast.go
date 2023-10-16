@@ -10,20 +10,32 @@ import (
 )
 
 type RideHandler struct {
-	rideUsecase usecase.RideUsecase
+	rideUsecase *usecase.RideUsecase
 }
 
-func NewRideHandler(ru usecase.RideUsecase) *RideHandler {
+func NewRideHandler(ru *usecase.RideUsecase) *RideHandler {
 	return &RideHandler{rideUsecase: ru}
 }
 
 func (rh *RideHandler) RequestRide(w http.ResponseWriter, r *http.Request) {
-	// Aqui você pode parsear os dados da requisição, como customerID, startLocation, endLocation e price
-	ride, err := rh.rideUsecase.RequestRide( /* argumentos */ )
+	var request struct {
+		CustomerID    int     `json:"customer_id"`
+		StartLocation string  `json:"start_location"`
+		EndLocation   string  `json:"end_location"`
+		Price         float64 `json:"price"`
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	ride, err := rh.rideUsecase.RequestRide(request.CustomerID, request.StartLocation, request.EndLocation, request.Price)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
 	json.NewEncoder(w).Encode(ride)
 }
 
