@@ -9,8 +9,8 @@ type CustomerUsecase struct {
 	repo repository.CustomerRepository
 }
 
-func NewCustomerUsecase(repo repository.CustomerRepository) *CustomerUsecase {
-	return &CustomerUsecase{repo: repo}
+func NewCustomerUsecase(repo repository.CustomerRepository) CustomerUsecase {
+	return CustomerUsecase{repo: repo}
 }
 
 func (cu *CustomerUsecase) CreateCustomer(customer domain.Customer) (domain.Customer, error) {

@@ -8,10 +8,10 @@ import (
 )
 
 type DriverUsecase struct {
-	repo repository.DriverRepository
+	repo *repository.DriverRepository
 }
 
-func NewDriverUsecase(repo repository.DriverRepository) *DriverUsecase {
+func NewDriverUsecase(repo *repository.DriverRepository) *DriverUsecase {
 	return &DriverUsecase{repo: repo}
 }
 

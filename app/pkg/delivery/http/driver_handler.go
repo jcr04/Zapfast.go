@@ -12,10 +12,10 @@ import (
 )
 
 type DriverHandler struct {
-	driverUsecase usecase.DriverUsecase
+	driverUsecase *usecase.DriverUsecase
 }
 
-func NewDriverHandler(du usecase.DriverUsecase) *DriverHandler {
+func NewDriverHandler(du *usecase.DriverUsecase) *DriverHandler {
 	return &DriverHandler{driverUsecase: du}
 }
 

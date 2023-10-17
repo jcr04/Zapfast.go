@@ -14,7 +14,7 @@ import (
 func NewRouter(db *sql.DB) *mux.Router {
 	// Repositórios
 	rideRepo := repository.NewRideRepository(db)
-	repository.NewPostgresCustomerRepository(db)
+	customerRepo := repository.NewPostgresCustomerRepository(db)
 	driverRepo := repository.NewDriverRepository(db)
 
 	// Casos de uso
