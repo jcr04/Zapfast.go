@@ -53,6 +53,7 @@ Agora, o servidor deve estar rodando em `http://localhost:8080`. Você pode usar
 ## Endpoints
 
 Os endpoints incluem:
+* - ![Screenshot_2](https://github.com/jcr04/Zapfast.go/assets/70778525/81bdf190-3344-48bb-b2ba-3d924f91b654)
 
 
 - `POST /rides`: Solicitar uma nova corrida.
