@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 
+	_ "github.com/lib/pq"
+
 	"github.com/jcr04/Zapfast.go/app/pkg/repository/api"
 )
 

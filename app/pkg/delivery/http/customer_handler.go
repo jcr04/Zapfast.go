@@ -38,15 +38,15 @@ func (ch *CustomerHandler) CreateCustomer(w http.ResponseWriter, r *http.Request
 
 func (ch *CustomerHandler) GetCustomer(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	customerID, err := strconv.Atoi(vars["id"])
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
+	idStr, ok := vars["id"]
+	if !ok || idStr == "" {
+		http.Error(w, "Missing or empty ID", http.StatusBadRequest)
 		return
 	}
 
-	customer, err := ch.customerUsecase.GetCustomer(customerID)
+	customer, err := strconv.Atoi(idStr)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "Invalid ID: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 
