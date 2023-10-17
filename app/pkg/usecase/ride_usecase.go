@@ -2,14 +2,14 @@ package usecase
 
 import (
 	"github.com/jcr04/Zapfast.go/app/pkg/domain"
-	repository "github.com/jcr04/Zapfast.go/app/pkg/repository/postgres"
+	repository "github.com/jcr04/Zapfast.go/app/pkg/repository"
 )
 
 type RideUsecase struct {
-	rideRepo repository.RideRepository
+	rideRepo *repository.RideRepository
 }
 
-func NewRideUsecase(rr repository.RideRepository) *RideUsecase {
+func NewRideUsecase(rr *repository.RideRepository) *RideUsecase {
 	return &RideUsecase{rideRepo: rr}
 }
 
